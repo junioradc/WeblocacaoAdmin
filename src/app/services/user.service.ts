@@ -13,13 +13,18 @@ export class UserService {
         private authenticationService: AuthenticationService) {
     }
 
-    getUsers(): Observable<User[]> {
+    getUsers(): Observable<User> | User  {
         // add authorization header with jwt token
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
         let options = new RequestOptions({ headers: headers });
 
         // get users from api
-        return this.http.get('/api/users', options)
-            .map((response: Response) => response.json());
+        // return this.http.get('/api/users', options)
+        //     .map((response: Response) => response.json());
+
+        var user= this.authenticationService.user;
+        
+        return user;
+
     }
 }
