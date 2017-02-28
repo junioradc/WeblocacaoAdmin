@@ -11,6 +11,7 @@ import {routing } from './app.routing';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BaseRequestOptions } from '@angular/http';
 
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { AuthGuard } from './guards/index';
 import { AuthenticationService, UserService } from './services/index';
 
@@ -35,6 +36,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     FormsModule, CustomFormsModule,
     HttpModule,
     AlertModule.forRoot(),
+    ToastModule.forRoot(),
     routing
   ],
   providers: [
